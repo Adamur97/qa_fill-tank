@@ -1,11 +1,22 @@
 'use strict';
 
+const { fillTank } = require('./fillTank');
+
 describe('fillTank', () => {
-  // const { fillTank } = require('./fillTank');
+  let customer;
 
-  it('should ', () => {
-
+  beforeEach(() => {
+    customer = {
+      money: 3000,
+      vehicle: {
+        maxTankCapacity: 40,
+        fuelRemains: 8,
+      },
+    };
   });
 
-  // write tests here
+  it('should fill tank to full when amount is not provided', () => {
+    fillTank(customer, 50);
+    expect(customer.vehicle.fuelRemains).toBeGreaterThan(8);
+  });
 });
